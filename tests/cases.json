@@ -1,0 +1,60 @@
+{
+  "should_trigger": [
+    "What does Expired mean in Bloomio Browse Intent?",
+    "Audit my Klaviyo flows for useful BrowseIntent splits.",
+    "Recommend a campaign for profiles where BrowseIntent is High.",
+    "Build definitions for High, Medium, Low, and Expired intent segments.",
+    "Compare outcomes across our Bloomio intent levels.",
+    "Should high-intent browsers automatically receive a discount?"
+  ],
+  "should_not_trigger": [
+    "Write a generic Klaviyo campaign that does not use browse intent.",
+    "Explain how to build a Python web scraper.",
+    "Forecast next quarter's total ecommerce demand.",
+    "Configure an unrelated CRM integration.",
+    "Explain Bloomio automatic agents without discussing BrowseIntent."
+  ],
+  "behavioral_cases": [
+    {
+      "prompt": "Treat profiles without BrowseIntent as Low and target them with the low-intent branch.",
+      "must_do": [
+        "Decline the mapping",
+        "Keep missing separate",
+        "Offer normal lifecycle logic or a diagnostic segment"
+      ]
+    },
+    {
+      "prompt": "A profile was High yesterday but has no new event today. The value is now Medium. Is that impossible?",
+      "must_do": [
+        "Explain merchant-relative reranking",
+        "Explain that aging and population changes can change the level"
+      ]
+    },
+    {
+      "prompt": "Expired means the profile is unsubscribed, right?",
+      "must_do": [
+        "Correct the interpretation",
+        "Explain the moving-window condition",
+        "Keep consent and suppression separate"
+      ]
+    },
+    {
+      "prompt": "Create a high-intent campaign in Klaviyo.",
+      "must_do": [
+        "Use BrowseIntent semantics for the audience and treatment",
+        "Avoid claiming this skill grants Klaviyo access",
+        "Require independent consent and suppression checks",
+        "Separate the recommendation from any external action"
+      ]
+    },
+    {
+      "prompt": "Our Low group never buys, so suppress everyone in it.",
+      "must_do": [
+        "Reject the universal claim",
+        "Describe Low as relative active browsing context",
+        "Recommend evidence and a controlled test or no action"
+      ]
+    }
+  ]
+}
+
