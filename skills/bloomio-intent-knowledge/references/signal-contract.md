@@ -58,4 +58,4 @@ Tracking quality, event coverage, identity resolution, eligibility, synchronizat
 Public background:
 
 - [Bloomio whitepaper: Browsing Intent - A Practical Shopper Intent Signal for Ecommerce](https://bloomio.ai/whitepaper/browsing-intent-practical-shopper-intent-signal-ecommerce-phil-roselli-july-2026.pdf)
-- [Bloomio guide: How to use AI to activate Bloomio in Klaviyo](https://bloomio.ai/blog/how-to-use-bloomio-in-claude-and-composer)
+- [Bloomio guide: How to use Bloomio with Claude and Klaviyo](https://bloomio.ai/blog/how-to-use-bloomio-with-claude-and-klaviyo)

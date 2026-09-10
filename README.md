@@ -70,7 +70,7 @@ skills-ref validate skills/bloomio-intent-knowledge
 ## Sources
 
 - [Bloomio whitepaper](https://bloomio.ai/whitepaper/browsing-intent-practical-shopper-intent-signal-ecommerce-phil-roselli-july-2026.pdf)
-- [Bloomio AI activation guide](https://bloomio.ai/blog/how-to-use-bloomio-in-claude-and-composer)
+- [Bloomio Claude activation guide](https://bloomio.ai/blog/how-to-use-bloomio-with-claude-and-klaviyo)
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Claude custom skills documentation](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 
