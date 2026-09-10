@@ -28,8 +28,6 @@ Then test a recommendation:
 
 > Recommend one campaign hypothesis for profiles whose `BrowseIntent` is `High`. Separate observed facts, canonical Bloomio meaning, and your recommendation. Do not make any Klaviyo changes.
 
-See [PUBLISHING.md](PUBLISHING.md) for the complete test matrix and release process.
-
 ## Repository structure
 
 ```text
@@ -43,7 +41,6 @@ bloomio-intent-knowledge/
 ├── tests/
 ├── CHANGELOG.md
 ├── LICENSE
-├── PUBLISHING.md
 └── README.md
 ```
 

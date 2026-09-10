@@ -7,7 +7,7 @@
 - Added the moving 90-day-window and merchant-relative interpretation rules.
 - Added overridable lifecycle activation playbooks for campaigns, flows, segments, diagnostics, and experiments.
 - Added explicit passive-authority, consent, suppression, lifecycle-priority, evidence, and public-safety boundaries.
-- Added Claude installation, validation, testing, and GitHub release guidance.
+- Added Claude installation and user-facing test guidance.
 - Limited the initial public distribution to Claude.
 - Added a connected-data prompt-injection boundary.
 - Selected the MIT license for public distribution.
