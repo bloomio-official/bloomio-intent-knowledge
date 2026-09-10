@@ -10,12 +10,8 @@ SKILL_ROOT = PROJECT_ROOT / "skills" / "bloomio-intent-knowledge"
 SKILL_MD = SKILL_ROOT / "SKILL.md"
 SIGNAL_CONTRACT = SKILL_ROOT / "references" / "signal-contract.md"
 PLAYBOOKS = SKILL_ROOT / "references" / "activation-playbooks.md"
-PLUGIN_JSON = PROJECT_ROOT / "plugin.json"
 CLAUDE_ZIP = (
     PROJECT_ROOT / "dist" / "bloomio-intent-knowledge-claude-v0.1.0.zip"
-)
-OPENAI_ZIP = (
-    PROJECT_ROOT / "dist" / "bloomio-intent-knowledge-openai-v0.1.0.zip"
 )
 
 
@@ -31,6 +27,15 @@ def frontmatter(text: str) -> str:
 
 
 class SkillContractTests(unittest.TestCase):
+    def test_claude_only_release_structure(self):
+        self.assertFalse((PROJECT_ROOT / "plugin.json").exists())
+        archives = sorted(
+            path.name for path in (PROJECT_ROOT / "dist").glob("*.zip")
+        )
+        self.assertEqual(
+            archives, ["bloomio-intent-knowledge-claude-v0.1.0.zip"]
+        )
+
     def test_minimal_install_structure(self):
         files = sorted(
             str(path.relative_to(SKILL_ROOT))
@@ -60,24 +65,6 @@ class SkillContractTests(unittest.TestCase):
         self.assertNotIn("allowed-tools:", metadata)
         self.assertNotIn("dependencies:", metadata)
         self.assertLess(len(text.splitlines()), 500)
-
-    def test_plugin_manifest_is_minimal_and_versioned(self):
-        manifest = json.loads(read(PLUGIN_JSON))
-        self.assertEqual(
-            manifest["$schema"],
-            "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-        )
-        self.assertEqual(manifest["name"], SKILL_ROOT.name)
-        self.assertEqual(manifest["version"], "0.1.0")
-        self.assertEqual(
-            set(manifest), {"$schema", "name", "version", "description"}
-        )
-        skill_version = re.search(
-            r'^\s+version:\s+"([^"]+)"$',
-            frontmatter(read(SKILL_MD)),
-            flags=re.MULTILINE,
-        ).group(1)
-        self.assertEqual(manifest["version"], skill_version)
 
     def test_canonical_property_and_states(self):
         text = read(SIGNAL_CONTRACT)
@@ -151,21 +138,6 @@ class SkillContractTests(unittest.TestCase):
                 "bloomio-intent-knowledge/SKILL.md",
                 "bloomio-intent-knowledge/references/activation-playbooks.md",
                 "bloomio-intent-knowledge/references/signal-contract.md",
-            ],
-        )
-
-    def test_openai_zip_layout_when_present(self):
-        if not OPENAI_ZIP.exists():
-            self.skipTest("OpenAI release ZIP has not been built")
-        with zipfile.ZipFile(OPENAI_ZIP) as archive:
-            names = sorted(name for name in archive.namelist() if not name.endswith("/"))
-        self.assertEqual(
-            names,
-            [
-                "plugin.json",
-                "skills/bloomio-intent-knowledge/SKILL.md",
-                "skills/bloomio-intent-knowledge/references/activation-playbooks.md",
-                "skills/bloomio-intent-knowledge/references/signal-contract.md",
             ],
         )
 
