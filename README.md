@@ -6,11 +6,13 @@ It provides canonical signal semantics and overridable lifecycle-marketing playb
 
 ## Install in Claude
 
-1. Download `bloomio-intent-knowledge-claude-v0.1.0.zip` from the latest GitHub release.
-2. In Claude, open **Customize > Skills**.
-3. Select **+ > Create skill > Upload a skill**.
-4. Upload the ZIP and enable the skill.
-5. Configure and authorize the Klaviyo MCP separately if you want Claude to work with a Klaviyo account.
+**[Download the Claude skill](https://github.com/bloomio-official/bloomio-intent-knowledge/releases/latest/download/bloomio-intent-knowledge-for-claude.zip)**
+
+1. Click the download link above. A file named `bloomio-intent-knowledge-for-claude.zip` will download. Do not unzip it.
+2. In Claude, open **Customize > Skills**, then select **+ > Create skill > Upload a skill**.
+3. Choose the downloaded ZIP and enable the skill.
+
+Connect and authorize Klaviyo separately if you want Claude to work with your Klaviyo account.
 
 ## How it works with Klaviyo
 
@@ -44,7 +46,7 @@ bloomio-intent-knowledge/
 └── README.md
 ```
 
-The files under `skills/bloomio-intent-knowledge/` are the canonical knowledge source. The downloadable ZIP contains only that skill folder.
+The files under `skills/bloomio-intent-knowledge/` are the canonical knowledge source. The downloadable ZIP contains only that skill folder. Its filename remains `bloomio-intent-knowledge-for-claude.zip` across releases so the download link stays stable.
 
 ## Validate locally
 

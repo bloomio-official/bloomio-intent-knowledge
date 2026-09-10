@@ -11,7 +11,7 @@ SKILL_MD = SKILL_ROOT / "SKILL.md"
 SIGNAL_CONTRACT = SKILL_ROOT / "references" / "signal-contract.md"
 PLAYBOOKS = SKILL_ROOT / "references" / "activation-playbooks.md"
 CLAUDE_ZIP = (
-    PROJECT_ROOT / "dist" / "bloomio-intent-knowledge-claude-v0.1.0.zip"
+    PROJECT_ROOT / "dist" / "bloomio-intent-knowledge-for-claude.zip"
 )
 
 
@@ -33,8 +33,16 @@ class SkillContractTests(unittest.TestCase):
             path.name for path in (PROJECT_ROOT / "dist").glob("*.zip")
         )
         self.assertEqual(
-            archives, ["bloomio-intent-knowledge-claude-v0.1.0.zip"]
+            archives, ["bloomio-intent-knowledge-for-claude.zip"]
         )
+
+    def test_readme_uses_stable_direct_download(self):
+        text = read(PROJECT_ROOT / "README.md")
+        self.assertIn(
+            "/releases/latest/download/bloomio-intent-knowledge-for-claude.zip",
+            text,
+        )
+        self.assertNotIn("from the latest GitHub release", text)
 
     def test_minimal_install_structure(self):
         files = sorted(

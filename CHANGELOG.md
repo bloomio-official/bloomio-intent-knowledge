@@ -10,4 +10,5 @@
 - Added Claude installation and user-facing test guidance.
 - Limited the initial public distribution to Claude.
 - Added a connected-data prompt-injection boundary.
+- Added a stable, direct Claude-skill download path for non-technical users.
 - Selected the MIT license for public distribution.
